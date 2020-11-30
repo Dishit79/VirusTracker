@@ -6,7 +6,6 @@ app = Flask(__name__)
 
 
 @app.route('/')
-
 def main():
 
     my_url = 'https://www.canada.ca/en/public-health/services/diseases/coronavirus-disease-covid-19.html?utm_campaign=not-applicable&utm_medium=vanity-url&utm_source=canada-ca_coronavirus'
@@ -44,7 +43,7 @@ def main():
     ontdata = pagesoup2.findAll('div' , {'class' : 'ontario-infographic-number'})
     date = pagesoup2.findAll('p' , {'class' : 'ontario-margin-top-32-!'})
 
-    date10 = date[1]
+
     numcases = ontdata[0]
     res = ontdata[1]
     death = ontdata[2]
@@ -59,9 +58,8 @@ def main():
     d4 =  hos.text
     d5 = tw.text
     d6 = te.text
-    up = date10.text
 
-    return render_template('index.html', d1=d1, d2=d2, d3=d3, d4=d4, d5=d5, d6=d6, up=up, a=lastupdate, b=ppltestes, c=concases , d=probcases, e=deaths)
+    return render_template('index.html', d1=d1, d2=d2, d3=d3, d4=d4, d5=d5, d6=d6, a=lastupdate, b=ppltestes, c=concases , d=probcases, e=deaths)
 
 
 if __name__ == "__main__" :
